@@ -8,15 +8,15 @@ from .permissions import IsAuthenticatedOrReadOnly
 # CR views
 class BookList(generics.ListCreateAPIView):
     # queryset = Post.objects.filter(published = True)
-    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = Book.objects.all()
     serializer_class = BookSerialzer
+    permission_class = (IsAuthenticatedOrReadOnly,)
 
 # RUD view
 class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerialzer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_class = (IsAuthenticatedOrReadOnly,)
 
 # class PostCreate():
 #     pass
